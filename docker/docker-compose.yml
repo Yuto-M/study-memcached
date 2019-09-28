@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  apache-php:
+      build: ./apache-php
+      ports:
+          - "80:80"
+      volumes:
+        - ./apache-php:/var/www/html
+      links:
+          - memcached
+
+  memcached:
+      image: memcached:1.4
